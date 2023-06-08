@@ -2,6 +2,7 @@
 import { defineComponent } from 'vue'
 export default defineComponent({
   name: 'App',
+  inheritAttrs: false,
   data() {
     return {
       formValues: {
@@ -11,16 +12,13 @@ export default defineComponent({
         email: '',
         location: '',
         motivation: '',
-        react: 'no',
-        svelte: 'no',
-        vue: 'no',
+        checkValue: [],
         remoteWork: 'no'
       }
     }
   },
   methods: {
-    submitForm(event: any) {
-      event.preventDefault();
+    submitForm(): void {
       console.log(this.formValues);
     }
   }
@@ -34,7 +32,7 @@ export default defineComponent({
       {{ JSON.stringify(formValues, null, 2) }}
     </pre>
 
-    <form @submit="submitForm">
+    <form @submit.prevent="submitForm">
       <label for="username">Username</label>
       <input id="username" type="text" v-model="formValues.name" />
 
@@ -59,16 +57,28 @@ export default defineComponent({
       <textarea id="areaLocation" cols="30" rows="10" v-model="formValues.motivation"/>
   
       <div>
-        <h3 for="checkCode">Codes</h3>
+        <h3 for="checkCode">Codes {{ formValues.checkValue }}</h3>
+        
         <input type="checkbox" id="react" value="React" 
-          v-model="formValues.react" true-value="yes" false-value="no" />
+          v-model="formValues.checkValue" />
         <label for="react">React</label>
+
         <input type="checkbox" id="sveltekit" value="Sveltekit" 
-          v-model="formValues.svelte" true-value="yes" false-value="no" />
+          v-model="formValues.checkValue" />
         <label for="sveltekit">Sveltekit</label>
+
         <input type="checkbox" id="vue" value="Vue" 
-          v-model="formValues.vue" true-value="yes" false-value="no" />
+          v-model="formValues.checkValue" />
         <label for="vue">Vue</label>
+
+        <input type="checkbox" id="nextjs" value="NextJS" 
+          v-model="formValues.checkValue" />
+        <label for="nextjs">NextJS</label>
+
+        <input type="checkbox" id="vitejs" value="ViteJS" 
+          v-model="formValues.checkValue" />
+        <label for="vitejs">ViteJS</label>
+
       </div>
 
       <div>
