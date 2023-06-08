@@ -27,4 +27,7 @@ header {
   line-height: 1.1;
   max-height: 100vh;
 }
+img {
+  margin-top: 100px;
+}
 </style>

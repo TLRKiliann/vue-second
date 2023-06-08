@@ -28,7 +28,7 @@ export default defineComponent({
 
 <template>
   <div class="greetings">
-    <pre>
+    <pre class="prerender">
       {{ JSON.stringify(formValues, null, 2) }}
     </pre>
 
@@ -45,7 +45,7 @@ export default defineComponent({
       <label for="email">Email</label>
       <input id="email" type="email" v-model="formValues.email" />
 
-      <label for="country"></label>
+      <label for="country">Choose your country</label>
       <select id="country" v-model="formValues.location">
         <option value="brazil">Brazil</option>
         <option value="united states">USA</option>
@@ -56,9 +56,9 @@ export default defineComponent({
       <label for="areaLocation">Cover letter ?</label>
       <textarea id="areaLocation" cols="30" rows="10" v-model="formValues.motivation"/>
   
-      <div>
+      <div class="checkvalues">
         <h3 for="checkCode">Codes {{ formValues.checkValue }}</h3>
-        
+
         <input type="checkbox" id="react" value="React" 
           v-model="formValues.checkValue" />
         <label for="react">React</label>
@@ -87,7 +87,7 @@ export default defineComponent({
         <label for="remote">Ok to work in remote ?</label>
       </div>
 
-      <div>
+      <div class="btn--div">
         <button>Submit</button>
       </div>
     </form>
@@ -97,13 +97,75 @@ export default defineComponent({
 
 <style scoped>
 .greetings {
-  width: 500px;
-  margin: 0 50%;
+  margin-top: -140px;
+  width: 1200px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-bottom: 100px;
+}
+.prerender {
+  width: 40%;
+  font-size: 1.4rem;
+  text-align: center;
+  background: navy;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px aqua;
+  color: lightgrey;
 }
 form {
-  width: 300px;
-  margin: auto;
+  width: 45%;
   display: flex;
   flex-direction: column;
+  background-color: navy;
+  border-radius: 7px;
+  box-shadow: 0px 0px 20px cyan;
+  padding: 20px 40px;
+  color: #fff;
+}
+label {
+  font-size: 1.2rem;
+  margin: 10px 0px;
+}
+.checkvalues{
+  margin: 10px auto;
+}
+input {
+  font-size: 1.2rem;
+  padding: 5px;
+}
+input[type='checkbox'] {
+  margin: 10px;
+}
+select {
+  font-size: 1.2rem;
+  padding: 5px 0px;
+}
+textarea {
+  font-size: 0.9rem;
+  border: 1px solid #242424;
+  border-radius: 12px;
+  box-shadow: 0px 0px 20px inset #000;
+  padding: 5px 10px;
+}
+.btn--div {
+  display: flex;
+  justify-content: center;
+}
+button {
+  margin-top: 10px;
+  font-size: 16px;
+  font-weight: bold;
+  background-color: royalblue;
+  border: 1px solid navy;
+  border-radius: 7px;
+  color: lightgreen;
+  padding: 10px 200px;
+}
+button:hover {
+  transform: scale(1.05);
+}
+button:active {
+  transform: scale(0.95);
 }
 </style>

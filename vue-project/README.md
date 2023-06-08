@@ -14,6 +14,12 @@ Note: this option does not affect class and style bindings.
 
 ---
 
+## Test
+
+$ npm run test:unit
+
+---
+
 ## Customize configuration
 
 See [Vite Configuration Reference](https://vitejs.dev/config/).
