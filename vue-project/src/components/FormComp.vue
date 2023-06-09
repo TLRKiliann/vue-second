@@ -34,13 +34,13 @@ export default defineComponent({
 
     <form @submit.prevent="submitForm">
       <label for="username">Username</label>
-      <input id="username" type="text" v-model="formValues.name" />
+      <input id="username" type="text" v-model.trim.lazy="formValues.name" />
 
       <label for="password">Password</label>
       <input id="password" type="password" v-model="formValues.password" />
 
       <label for="phone">Phone</label>
-      <input id="phone" type="number" v-model="formValues.phone" />
+      <input id="phone" type="number" v-model.number="formValues.phone" />
 
       <label for="email">Email</label>
       <input id="email" type="email" v-model="formValues.email" />

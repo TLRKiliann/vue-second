@@ -14,6 +14,16 @@ Note: this option does not affect class and style bindings.
 
 ---
 
+## Modifiers
+
+keywords: trim - number - lazy - prevent - keyup.enter
+
+- v-model.trim (avoid space)
+- v-model.number (write as a number)
+- v-model.trim.lazy (validate only when user change of input)
+- @submit.prevent (avoid to write event in function submit)
+- @keyup.enter="submitForm" (if we want to change the behavior of submit action)
+
 ## Test
 
 $ npm run test:unit
